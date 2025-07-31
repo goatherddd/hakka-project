@@ -1,44 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>The Boat - Demo</title>
-  <!-- 引入样式表 -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>擂茶四味 - 客家文化故事</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- 第一屏 -->
-  <section class="page first" id="first">
-    <div class="content">
-      <h1 id="title">The Boat</h1>
-      <p>A storytelling experience begins...</p>
+    <!-- 侧边滑动器 -->
+    <div class="side-navigator">
+        <div class="nav-dots">
+            <div class="nav-dot active" data-section="intro">
+                <span class="dot-label">开场</span>
+            </div>
+            <div class="nav-dot" data-section="first-taste">
+                <span class="dot-label">第一味</span>
+            </div>
+            <div class="nav-dot" data-section="second-taste">
+                <span class="dot-label">第二味</span>
+            </div>
+            <div class="nav-dot" data-section="third-taste">
+                <span class="dot-label">第三味</span>
+            </div>
+            <div class="nav-dot" data-section="fourth-taste">
+                <span class="dot-label">第四味</span>
+            </div>
+            <div class="nav-dot" data-section="your-taste">
+                <span class="dot-label">你的一味</span>
+            </div>
+        </div>
     </div>
-    <div class="down-arrow">↓</div>
-  </section>
 
-  <!-- 第二屏（带视差效果） -->
-  <section class="page second" id="second" data-speed="1.5">
-    <div class="content" data-lag="0.4">
-      <h2>Chapter 2</h2>
-      <p>Here’s the next part of the story…</p>
-    </div>
-  </section>
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <!-- 开场部分 -->
+        <section id="intro" class="section active">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h1 class="main-title">擂茶四味</h1>
+                    <h2 class="subtitle">Four Tastes of Leicha</h2>
+                    <div class="story-intro">
+                        <p class="description">
+                            我叫阿飞，出生于河洛。小时候的最爱是制做擂茶时艾草与薄荷叶的清香。
+                            记得那天，爷爷的手还是湿的，端起碗，茶水与汗水交织这在碗中打转，
+                            泛起的丝丝涟漪，像极了我们不断迁徙的命运。
+                        </p>
+                        <div class="quote">
+                            <span>"擂茶，不只是茶。"</span>
+                        </div>
+                    </div>
+                    <div class="scroll-hint">
+                        <span>向下滚动品味故事</span>
+                        <div class="scroll-arrow">↓</div>
+                    </div>
+                </div>
+                <div class="visual-content">
+                    <div class="tea-bowl-animation">
+                        <div class="bowl"></div>
+                        <div class="steam"></div>
+                        <div class="tea-ripple"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- 第三屏（带视差效果） -->
-  <section class="page third" id="third" data-speed="0.8">
-    <div class="content" data-lag="0.2">
-      <h2>Chapter 3</h2>
-      <p>And this is yet another chapter…</p>
-    </div>
-  </section>
+        <!-- 第一味：破碎的茶碗 -->
+        <section id="first-taste" class="section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">第一味：破碎的茶碗</h2>
+                    <h3 class="subtitle">中原南迁与"客家"族群的形成</h3>
+                    <div class="story-content">
+                        <p class="story-text">
+                            我们祖上几代人都住在中原汴州，那是黄河边最肥沃的地方。
+                            爷爷说，我们原本不是"客家人"，我们只是逃难人。
+                        </p>
+                        <p class="story-text">
+                            我们一路南下，一路上走走停停，越过长江，翻过梅岭，越过赣南老林，
+                            穿行在毒沼与瘴气之中。有些同乡人在当地住下了，而也有些同乡人也离我们而去。
+                            这里的土地和语言都不属于我们，我们便是这里的客人，那称呼里带着几分探究，几分疏远。
+                        </p>
+                        <div class="migration-timeline">
+                            <div class="timeline-item">
+                                <span class="location">河南汴州</span>
+                                <span class="event">中原故土，黄河边最肥沃的地方</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="location">湖北</span>
+                                <span class="event">第一次南迁，躲避战乱</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="location">湖南</span>
+                                <span class="event">翻越梅岭，穿越瘴气</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="location">江西</span>
+                                <span class="event">赣南老林，毒沼之地</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="location">福建/广东</span>
+                                <span class="event">最终定居，成为"客家人"</span>
+                            </div>
+                        </div>
+                        <div class="migration-map">
+                            <div class="map-container">
+                                <div class="route-line"></div>
+                                <div class="location-dot" data-location="henan">汴州</div>
+                                <div class="location-dot" data-location="hubei">湖北</div>
+                                <div class="location-dot" data-location="hunan">湖南</div>
+                                <div class="location-dot" data-location="jiangxi">江西</div>
+                                <div class="location-dot" data-location="fujian">福建</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- GSAP 核心 + 插件（CDN 引入） -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollSmoother.min.js"></script>
-  <!-- 你的动画脚本 -->
-  <script src="script.js"></script>
+        <!-- 第二味：芝麻 -->
+        <section id="second-taste" class="section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">第二味：芝麻</h2>
+                    <h3 class="subtitle">海外淘金与华工血泪</h3>
+                    <div class="story-content">
+                        <p class="story-text">
+                            后来，大伯下定决心要去到大洋彼岸的金山。为了让自己不再留恋，
+                            他连家里连擂茶碗都碎了。祖父说："再不走，我们连做客人的资格都没有。"
+                            他没告诉大伯要去哪儿，只塞给他一封介绍信和一张美国船票。
+                        </p>
+                        <p class="story-text">
+                            那是大伯第一次坐船，站在甲板上，擂茶的味道离越来越远。
+                            到了旧金山，他在码头被拉去修铁路。白人监督拿鞭子抽他们，
+                            说他们是"廉价牲口"。有人死了，埋在铁轨下，没有墓碑，没有姓名，
+                            如尘土般随风飘去。
+                        </p>
+                        <div class="railroad-story">
+                            <div class="story-element">
+                                <h4>船票与信件</h4>
+                                <p>一封介绍信和一张美国船票，承载着希望与离别</p>
+                            </div>
+                            <div class="story-element">
+                                <h4>铁路血泪</h4>
+                                <p>中部太平洋铁路线上，埋藏着无数华工的血泪</p>
+                            </div>
+                            <div class="story-element">
+                                <h4>无声墓碑</h4>
+                                <p>没有墓碑，没有姓名，如尘土般随风飘去</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三味：茶盐 -->
+        <section id="third-taste" class="section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">第三味：茶盐</h2>
+                    <h3 class="subtitle">迁居落地，语言与身份的挣扎</h3>
+                    <div class="story-content">
+                        <p class="story-text">
+                            我们在福建建起了第一座围屋，用泥砖一块一块垒起来，就像在垒自己的根。
+                            硕大的屋子住着我的无数兄弟，看着我们在这片土地上我们的根基，
+                            我已经能遇见未来我们子嗣的足迹踏遍这片大地。
+                        </p>
+                        <p class="story-text">
+                            围屋里讲的是客家话，墙外讲的是粤语，我们不想，也不能想见的两个世界。
+                            有人笑我们口音重，背地里说我们"古怪"；有人说我们是异类，不吃本地饭。
+                            因此我们发明出了符合我们自己口味的食物：擂茶。
+                        </p>
+                        <div class="culture-contrast">
+                            <div class="inside-wall">
+                                <h4>墙内：客家话</h4>
+                                <p>围屋内的温暖，家族团聚的温馨</p>
+                            </div>
+                            <div class="outside-wall">
+                                <h4>墙外：粤语</h4>
+                                <p>市集的喧嚣，异乡人的孤独</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四味：改革开放 -->
+        <section id="fourth-taste" class="section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">第四味：改革开放</h2>
+                    <h3 class="subtitle">新时代的客家精神</h3>
+                    <div class="story-content">
+                        <p class="story-text">
+                            1981年，改革开放浪潮漫布全中国，我的爷爷奶奶也抓住这次机遇，
+                            走出他们生活了40余年的大山，那座庇护了，但也困住了众多客家人的大山。
+                            他们迈着沉重的步伐徒步上百公里来到珠三角闯荡。
+                        </p>
+                        <p class="story-text">
+                            我不喜欢这些本地人，但有客人来时，爸爸妈妈总会客客气气的端上一碗热气腾腾的擂茶，
+                            他说这是待客之道。人以善待人，即便外人对我们恶语相向，
+                            但是我们不会与他们计较，而这也是客家人的根脉，是迁徙多远都无法割舍的魂。
+                        </p>
+                        <div class="modern-story">
+                            <div class="story-element">
+                                <h4>走出大山</h4>
+                                <p>从大山走向珠三角，从传统走向现代</p>
+                            </div>
+                            <div class="story-element">
+                                <h4>待客之道</h4>
+                                <p>以擂茶待客，以善意待人</p>
+                            </div>
+                            <div class="story-element">
+                                <h4>客家精神</h4>
+                                <p>坚韧不拔，包容开放</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 你的一味：用户交互 -->
+        <section id="your-taste" class="section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2 class="section-title">你的一味</h2>
+                    <h3 class="subtitle">分享你的客家故事</h3>
+                    <div class="story-content">
+                        <p class="story-text">
+                            每个客家人都有自己的故事，每个故事都是客家文化的一部分。
+                            现在，轮到您分享您的客家故事了。
+                        </p>
+                        <div class="user-interaction">
+                            <div class="upload-section">
+                                <h4>上传您的故事</h4>
+                                <div class="upload-area">
+                                    <div class="upload-icon">📤</div>
+                                    <p>点击上传照片、视频或文字</p>
+                                    <input type="file" id="story-upload" accept="image/*,video/*,.txt,.doc,.docx" style="display: none;">
+                                    <button class="upload-btn" onclick="document.getElementById('story-upload').click()">
+                                        选择文件
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="story-form">
+                                <h4>写下您的故事</h4>
+                                <textarea placeholder="在这里分享您的客家故事..." rows="6"></textarea>
+                                <button class="submit-btn">提交故事</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-content">
+                    <div class="community-illustration">
+                        <div class="people-silhouettes"></div>
+                        <div class="story-bubbles"></div>
+                        <div class="connection-lines"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 

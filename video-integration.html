@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频集成示例 - 客家文化网站</title>
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8f6f2;
+            color: #2c2c2c;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #8b7355;
+            margin-bottom: 30px;
+        }
+        
+        .video-example {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f6f2;
+            border-radius: 10px;
+            border-left: 4px solid #8b7355;
+        }
+        
+        .code-block {
+            background: #2c2c2c;
+            color: #f8f6f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .highlight {
+            background: #8b7355;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(139, 115, 85, 0.1);
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            background: #8b7355;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 视频集成指南</h1>
+        
+        <p>本指南将帮助您将采访视频集成到客家文化网站中。</p>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>准备视频文件</strong>
+            <p>确保您的视频文件为MP4格式，建议分辨率不超过1920x1080，文件大小控制在100MB以内。</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>创建视频目录</strong>
+            <p>在项目根目录下创建 <code>videos</code> 文件夹，并将视频文件放入其中。</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>更新HTML结构</strong>
+            <p>在 <code>index.html</code> 的采访部分，将视频占位符替换为实际的视频元素：</p>
+            
+            <div class="code-block">
+&lt;div class="video-section"&gt;
+    &lt;h3&gt;采访视频一&lt;/h3&gt;
+    &lt;div class="video-container"&gt;
+        &lt;video controls&gt;
+            &lt;source src="videos/interview1.mp4" type="video/mp4"&gt;
+            您的浏览器不支持视频播放。
+        &lt;/video&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>更新JavaScript</strong>
+            <p>在 <code>script.js</code> 中，修改视频模态框的源地址：</p>
+            
+            <div class="code-block">
+// 在 showVideoModal 函数中更新视频源
+&lt;video controls&gt;
+    &lt;source src="videos/interview1.mp4" type="video/mp4"&gt;
+    您的浏览器不支持视频播放。
+&lt;/video&gt;
+            </div>
+        </div>
+        
+        <div class="video-example">
+            <h3>📁 推荐的文件结构</h3>
+            <pre>
+hakka-culture-website/
+├── index.html
+├── styles.css
+├── script.js
+├── videos/
+│   ├── interview1.mp4    # 客家文化传承人访谈
+│   ├── interview2.mp4    # 客家建筑专家访谈
+│   └── background.mp4    # 背景视频（可选）
+└── README.md
+            </pre>
+        </div>
+        
+        <div class="video-example">
+            <h3>🎬 视频格式建议</h3>
+            <ul>
+                <li><strong>格式</strong>：MP4 (H.264编码)</li>
+                <li><strong>分辨率</strong>：1920x1080 或 1280x720</li>
+                <li><strong>帧率</strong>：25fps 或 30fps</li>
+                <li><strong>比特率</strong>：2-5 Mbps</li>
+                <li><strong>音频</strong>：AAC编码，128kbps</li>
+            </ul>
+        </div>
+        
+        <div class="video-example">
+            <h3>🔧 高级配置</h3>
+            <p>如果您需要更高级的视频功能，可以考虑以下选项：</p>
+            
+            <h4>1. 自动播放（静音）</h4>
+            <div class="code-block">
+&lt;video autoplay muted loop&gt;
+    &lt;source src="videos/background.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+            </div>
+            
+            <h4>2. 视频预览图</h4>
+            <div class="code-block">
+&lt;video controls poster="images/video-thumbnail.jpg"&gt;
+    &lt;source src="videos/interview1.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+            </div>
+            
+            <h4>3. 响应式视频</h4>
+            <div class="code-block">
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 宽高比 */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+            </div>
+        </div>
+        
+        <div class="video-example">
+            <h3>⚠️ 注意事项</h3>
+            <ul>
+                <li>确保视频文件有适当的版权许可</li>
+                <li>考虑视频文件大小对网站加载速度的影响</li>
+                <li>提供视频的替代文本或描述</li>
+                <li>测试在不同设备和浏览器上的兼容性</li>
+                <li>考虑添加字幕或文字记录</li>
+            </ul>
+        </div>
+        
+        <div class="video-example">
+            <h3>🚀 性能优化建议</h3>
+            <ul>
+                <li>使用 <span class="highlight">懒加载</span> 延迟加载视频</li>
+                <li>提供多种分辨率的视频文件</li>
+                <li>使用 <span class="highlight">WebM</span> 格式作为MP4的备选</li>
+                <li>压缩视频文件以减少带宽使用</li>
+                <li>考虑使用CDN托管视频文件</li>
+            </ul>
+        </div>
+        
+        <p style="text-align: center; margin-top: 40px; color: #8b7355;">
+            <strong>完成以上步骤后，您的客家文化网站就可以播放真实的采访视频了！</strong>
+        </p>
+    </div>
+</body>
+</html> 
