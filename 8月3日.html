@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客家故事 - The Hakkas</title>
+    <link rel="stylesheet" href="text-interaction.css">
+    <style>
+        /* 导入字体 */
+        @font-face {
+            font-family: 'JambuKristal';
+            src: url('JambuKristal-1G01M.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JambuKristal', 'Microsoft YaHei', Arial, sans-serif;
+            overflow-x: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .section {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            will-change: transform;
+        }
+
+        .text-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            will-change: transform;
+        }
+
+        /* 第一段：The Hakkas */
+        .section-1 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .section-1 .text-layer {
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: 'JambuKristal', serif;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .model-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .text-box {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            background: rgba(0,0,0,0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* 第二段：破碎的茶碗 */
+        .section-2 {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        .scattered-text {
+            position: absolute;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .scattered-text:nth-child(1) { top: 30vh; left: 20%; }
+        .scattered-text:nth-child(2) { top: 45vh; left: 60%; }
+        .scattered-text:nth-child(3) { top: 60vh; left: 30%; }
+        .scattered-text:nth-child(4) { top: 35vh; left: 70%; }
+        .scattered-text:nth-child(5) { top: 55vh; left: 80%; }
+
+        .image-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        /* 第三段：阿飞的故事 */
+        .section-3 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .story-content {
+            display: flex;
+            height: 100%;
+        }
+
+        .story-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .story-text {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .story-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+            max-width: 600px;
+        }
+
+        .bowl-image {
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footprints {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            width: 200px;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><circle cx="20" cy="25" r="3" fill="white" opacity="0.7"/><circle cx="40" cy="20" r="3" fill="white" opacity="0.7"/><circle cx="60" cy="15" r="3" fill="white" opacity="0.7"/><circle cx="80" cy="10" r="3" fill="white" opacity="0.7"/></svg>') no-repeat;
+            background-size: contain;
+        }
+
+        /* 第四段：中原南迁 */
+        .section-4 {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        .migration-content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .migration-title {
+            font-family: 'JambuKristal', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .migration-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 第五段：芝麻 */
+        .section-5 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .sesame-content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .sesame-title {
+            font-family: 'JambuKristal', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .sesame-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 第六段：茶盐 */
+        .section-6 {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        .tea-salt-content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .tea-salt-title {
+            font-family: 'JambuKristal', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .tea-salt-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 第七段：改革开放 */
+        .section-7 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .reform-content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .reform-title {
+            font-family: 'JambuKristal', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .reform-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 第八段：青年自述 */
+        .section-8 {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        .youth-content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .youth-title {
+            font-family: 'JambuKristal', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .youth-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 第九段：用户上传 */
+        .section-9 {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .upload-content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .upload-title {
+            font-family: 'JambuKristal', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .upload-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .upload-input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        .upload-button {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        .upload-button:hover {
+            background: #45a049;
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 滚动指示器 */
+        .scroll-indicator {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .scroll-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-dot.active {
+            background: #fff;
+            transform: scale(1.5);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .story-content {
+                flex-direction: column;
+            }
+
+            .story-text, .story-image {
+                flex: none;
+            }
+
+            .scattered-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 滚动进度条 -->
+    <div class="scroll-progress"></div>
+    
+    <!-- 滚动指示器 -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" data-section="1"></div>
+        <div class="scroll-dot" data-section="2"></div>
+        <div class="scroll-dot" data-section="3"></div>
+        <div class="scroll-dot" data-section="4"></div>
+        <div class="scroll-dot" data-section="5"></div>
+        <div class="scroll-dot" data-section="6"></div>
+        <div class="scroll-dot" data-section="7"></div>
+        <div class="scroll-dot" data-section="8"></div>
+        <div class="scroll-dot" data-section="9"></div>
+    </div>
+
+    <!-- 第一段：The Hakkas -->
+    <section class="section section-1 animated-bg">
+        <div class="particles" id="particles-1"></div>
+        <div class="background-layer">
+            <div class="model-container hover-float">
+                <span style="color: rgba(255,255,255,0.5);">3D模型位置</span>
+            </div>
+        </div>
+        <div class="text-layer">
+            <h1 class="main-title glow typewriter">The Hakkas</h1>
+            <div class="text-box glass-effect">
+                <p class="fade-in-text">在这里可以插入介绍文字</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第二段：破碎的茶碗 -->
+    <section class="section section-2">
+        <div class="background-layer">
+            <div class="image-container">
+                <span style="color: rgba(255,255,255,0.5);">图片位置</span>
+            </div>
+        </div>
+        <div class="text-layer">
+            <div class="scattered-text">破</div>
+            <div class="scattered-text">碎</div>
+            <div class="scattered-text">的</div>
+            <div class="scattered-text">茶</div>
+            <div class="scattered-text">碗</div>
+        </div>
+    </section>
+
+    <!-- 第三段：阿飞的故事 -->
+    <section class="section section-3">
+        <div class="background-layer"></div>
+        <div class="text-layer">
+            <div class="story-content">
+                <div class="story-image">
+                    <div class="bowl-image">
+                        <span style="color: rgba(255,255,255,0.5);">搪瓷碗图片</span>
+                    </div>
+                    <div class="story-text">
+                        <p>我叫阿飞，出生于河洛。小时候的最爱是制做擂茶时艾草与薄荷叶的清香。记得那天，爷爷的手还是湿的，端起碗，茶水与汗水交织这在碗中打转，泛起的丝丝涟漪，像极了我们不断迁徙的命运。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footprints"></div>
+        </div>
+    </section>
+
+    <!-- 第四段：中原南迁 -->
+    <section class="section section-4">
+        <div class="background-layer"></div>
+        <div class="text-layer">
+            <div class="migration-content">
+                <h2 class="migration-title">中原南迁</h2>
+                <div class="migration-text">
+                    <p>我们祖上几代人都住在中原汴州，那是黄河边最肥沃的地方。爷爷说，我们原本不是"客家人"，我们只是逃难人。</p>
+                    <p>我们一路南下，一路上走走停停，越过长江，翻过梅岭，越过赣南老林，穿行在毒沼与瘴气之中。有些同乡人在当地住下了，而也有些同乡人也离我们而去。这里的土地和语言都不属于我们，我们便是这里的客人，那称呼里带着几分探究，几分疏远。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第五段：芝麻 -->
+    <section class="section section-5">
+        <div class="background-layer"></div>
+        <div class="text-layer">
+            <div class="sesame-content">
+                <h2 class="sesame-title">芝麻</h2>
+                <div class="sesame-text">
+                    <p>后来，大伯下定决心下要去到大洋彼岸的金山。为了让自己不再留恋，他连家里连擂茶碗都碎了。祖父说："再不走，我们连做客人的资格都没有。"</p>
+                    <p>那是大伯第一次坐船，站在甲板上，擂茶的味道离越来越远。到了旧金山，他在码头被拉去修铁路。白人监督拿鞭子抽他们，说他们是"廉价牲口"。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第六段：茶盐 -->
+    <section class="section section-6">
+        <div class="background-layer"></div>
+        <div class="text-layer">
+            <div class="tea-salt-content">
+                <h2 class="tea-salt-title">茶盐</h2>
+                <div class="tea-salt-text">
+                    <p>我们在福建建起了第一座围屋，用泥砖一块一块垒起来，就像在垒自己的根。围屋里讲的是客家话，墙外讲的是粤语，我们不想，也不能想见的两个世界。</p>
+                    <p>有人笑我们口音重，背地里说我们"古怪"；有人说我们是异类，不吃本地饭。因此我们发明出了符合我们自己口味的食物：擂茶。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第七段：改革开放 -->
+    <section class="section section-7">
+        <div class="background-layer"></div>
+        <div class="text-layer">
+            <div class="reform-content">
+                <h2 class="reform-title">改革开放</h2>
+                <div class="reform-text">
+                    <p>1981年，改革开放浪潮漫布全中国，我的爷爷奶奶也抓住这次机遇，走出他们生活了40余年的大山，那座庇护了，但也困住了众多客家人的大山。他们迈着沉重的步伐徒步上百公里来到珠三角闯荡。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第八段：青年自述 -->
+    <section class="section section-8">
+        <div class="background-layer"></div>
+        <div class="text-layer">
+            <div class="youth-content">
+                <h2 class="youth-title">青年自述</h2>
+                <div class="youth-text">
+                    <p>这里可以插入关于客家文化理解的视频内容</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第九段：用户上传 -->
+    <section class="section section-9">
+        <div class="background-layer"></div>
+        <div class="text-layer">
+            <div class="upload-content">
+                <h2 class="upload-title">你的一味</h2>
+                <form class="upload-form">
+                    <input type="text" class="upload-input" placeholder="你的姓名" required>
+                    <textarea class="upload-input" placeholder="分享你的客家故事..." rows="5" required></textarea>
+                    <input type="file" class="upload-input" accept="image/*,video/*">
+                    <button type="submit" class="upload-button">提交故事</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 创建粒子效果
+        function createParticles(containerId, count = 50) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // 更新滚动进度条
+        function updateScrollProgress() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        }
+
+        // 视差滚动效果
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const scrolled = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const backgroundLayer = section.querySelector('.background-layer');
+                
+                if (backgroundLayer) {
+                    // 只移动背景层，文字层保持静止
+                    const backgroundSpeed = 0.05;
+                    const backgroundYPos = -(scrolled * backgroundSpeed);
+                    backgroundLayer.style.transform = `translateY(${backgroundYPos}px)`;
+                }
+            });
+
+            // 更新滚动指示器和进度条
+            updateScrollIndicator();
+            updateScrollProgress();
+        });
+
+        // 滚动指示器功能
+        function updateScrollIndicator() {
+            const sections = document.querySelectorAll('.section');
+            const dots = document.querySelectorAll('.scroll-dot');
+            const scrolled = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+            });
+        }
+
+        // 点击滚动指示器跳转
+        document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const targetSection = document.querySelectorAll('.section')[index];
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 文字高亮效果
+        function addHighlightEffect() {
+            const texts = document.querySelectorAll('.story-text p, .migration-text p, .sesame-text p, .tea-salt-text p, .reform-text p');
+            texts.forEach(text => {
+                text.addEventListener('mouseenter', function() {
+                    this.classList.add('highlight');
+                });
+                text.addEventListener('animationend', function() {
+                    this.classList.remove('highlight');
+                });
+            });
+        }
+
+        // 表单提交处理
+        function handleFormSubmission() {
+            const form = document.querySelector('.upload-form');
+            const button = document.querySelector('.upload-button');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                button.innerHTML = '<span class="loading"></span> 提交中...';
+                
+                // 模拟提交过程
+                setTimeout(() => {
+                    button.innerHTML = '提交成功！';
+                    button.style.background = '#45a049';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = '提交故事';
+                        button.style.background = '#4CAF50';
+                        form.reset();
+                    }, 2000);
+                }, 1500);
+            });
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles('particles-1');
+            updateScrollIndicator();
+            updateScrollProgress();
+            addHighlightEffect();
+            handleFormSubmission();
+        });
+    </script>
+</body>
+</html>
